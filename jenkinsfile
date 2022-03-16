@@ -1,3 +1,4 @@
+@Library('ceiba-jenkins-library') _
 pipeline {
   //Donde se va a ejecutar el Pipeline
   agent {
@@ -64,11 +65,6 @@ pipeline {
       }
     }
 
-    stage('Build') {
-      steps {
-        echo "------------>Build<------------"
-      }
-    }  
   }
 
   post {
