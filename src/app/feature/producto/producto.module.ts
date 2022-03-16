@@ -7,6 +7,7 @@ import { CrearProductoComponent } from './components/crear-producto/crear-produc
 import { ProductoComponent } from './components/producto/producto.component';
 import { SharedModule } from '@shared/shared.module';
 import { ProductoService } from './shared/service/producto.service';
+import { ActualizarProductoComponent } from './components/actualizar-producto/actualizar-producto.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProductoService } from './shared/service/producto.service';
     CrearProductoComponent,
     ListarProductoComponent,
     BorrarProductoComponent,
-    ProductoComponent
+    ProductoComponent,
+    ActualizarProductoComponent
   ],
   imports: [
     ProductoRoutingModule,

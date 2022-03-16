@@ -3,6 +3,7 @@ import { by, element } from 'protractor';
 export class ProductoPage {
     private linkCrearProducto = element(by.id('linkCrearProducto'));
     private linkListarProductos = element(by.id('linkListarProducto'));
+    private linkActualizarProducto = element(by.id('linkActualizarProducto'))
     private inputIdProducto = element(by.id('idProducto'));
     private inputDescripcionProducto = element(by.id('descripcionProducto'));
     private listaProductos = element.all(by.css('ul.productos li'));
@@ -13,6 +14,10 @@ export class ProductoPage {
 
     async clickBotonListarProductos() {
         await this.linkListarProductos.click();
+    }
+    
+    async clickBotonActualizarProducto() {
+        await this.linkActualizarProducto.click();
     }
 
     async ingresarId(idProducto) {

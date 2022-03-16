@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-
+import { Router } from '@angular/router';
 import { ProductoService } from '@producto/shared/service/producto.service';
 import { Producto } from '@producto/shared/model/producto';
 
@@ -10,12 +9,21 @@ import { Producto } from '@producto/shared/model/producto';
   styleUrls: ['./listar-producto.component.css']
 })
 export class ListarProductoComponent implements OnInit {
-  public listaProductos: Observable<Producto[]>;
+  public listaProductos: Producto[];
 
-  constructor(protected productoService: ProductoService) { }
+  constructor(protected productoService: ProductoService, private router: Router) { }
 
   ngOnInit() {
-    this.listaProductos = this.productoService.consultar();
+    this.productoService.consultar()
+    .subscribe(data => {
+      this.listaProductos = data
+    });
+    console.log(this.listaProductos)
+  }
+
+  editar(producto: Producto) {
+    localStorage.setItem('id', producto.id);
+    this.router.navigate(['/producto/actualizar']);
   }
 
 }

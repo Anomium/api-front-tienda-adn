@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../../shared/service/producto.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
-const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
-
 @Component({
   selector: 'app-crear-producto',
   templateUrl: './crear-producto.component.html',
@@ -13,20 +10,25 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 export class CrearProductoComponent implements OnInit {
   productoForm: FormGroup;
   constructor(protected productoServices: ProductoService) { }
-
+  
   ngOnInit() {
     this.construirFormularioProducto();
   }
 
-  cerar() {
-    this.productoServices.guardar(this.productoForm.value);
+  crear() {
+    this.productoServices.guardar(this.productoForm.value)
+    .subscribe(
+      err => console.error(err)
+    )
   }
 
   private construirFormularioProducto() {
     this.productoForm = new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      descripcion: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
+      nombre: new FormControl('',[Validators.required]),
+      precio: new FormControl('',[Validators.required]),
+      cantidad: new FormControl('',[Validators.required]),
+      fechaCreacion: new FormControl('',[Validators.required])
+
     });
   }
 

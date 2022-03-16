@@ -4,6 +4,7 @@ import { CrearProductoComponent } from './components/crear-producto/crear-produc
 import { ListarProductoComponent } from './components/listar-producto/listar-producto.component';
 import { BorrarProductoComponent } from './components/borrar-producto/borrar-producto.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { ActualizarProductoComponent } from './components/actualizar-producto/actualizar-producto.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'borrar',
         component: BorrarProductoComponent
+      },
+      {
+        path: 'actualizar',
+        component: ActualizarProductoComponent
       }
     ]
   }
