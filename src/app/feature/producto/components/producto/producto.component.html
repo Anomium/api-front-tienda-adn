@@ -1,9 +1,11 @@
-<nav>
-  <a id="linkProducto" routerLink="./" routerLinkActive="active"
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" id="linkProducto" routerLink="./" routerLinkActive="active"
     [routerLinkActiveOptions]="{ exact: true }">Producto</a>
-  <a id="linkCrearProducto" routerLink="./crear" routerLinkActive="active">Crear producto</a>
-  <a id="linkBorrarProducto" routerLink="./borrar" routerLinkActive="active">Borrar producto</a>
-  <a id="linkListarProducto" routerLink="./listar" routerLinkActive="active">listar producto</a>
-  <a id="linkActualizarProducto" routerLink="./actualizar" routerLinkActive="active">Actualizar producto</a>
+    <a class="navbar-brand" id="linkCrearProducto" routerLink="./crear" routerLinkActive="active">Crear producto</a>
+    <a class="navbar-brand" id="linkListarProducto" routerLink="./listar" routerLinkActive="active">listar producto</a>
+    <a class="navbar-brand" id="linkActualizarProducto" routerLink="./actualizar" routerLinkActive="active">Actualizar producto</a>
+  </div>
 </nav>
+<br>
 <router-outlet></router-outlet>
