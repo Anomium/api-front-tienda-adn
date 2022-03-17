@@ -32,7 +32,6 @@ export class ListarProductoComponent implements OnInit {
   }
 
   crearCarrito(producto: Producto) {
-    
     this.carrito = new Carrito(producto.id, 
       producto.nombre, 
       producto.precio, 
