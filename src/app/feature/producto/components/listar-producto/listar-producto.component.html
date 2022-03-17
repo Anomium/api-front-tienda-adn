@@ -24,7 +24,8 @@
               <td>{{item.fechaCreacion}}</td>
               <td>
                 <button (click)="editar(item)" class="btn btn-warning">Editar</button>
-                <button class="btn btn-danger">Delete</button>
+                <button (click)="eliminar(item)" class="btn btn-danger">Delete</button>
+                <button (click)="crearCarrito(item)" class="btn btn-primary">Agregar al carrito</button>
               </td>
             </tr>
           </tbody>

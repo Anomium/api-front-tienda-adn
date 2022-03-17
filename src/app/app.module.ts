@@ -7,11 +7,13 @@ import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
+import { ComprarProductoComponent } from './feature/producto/components/comprar-producto/comprar-producto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ComprarProductoComponent
   ],
   imports: [
     BrowserModule,

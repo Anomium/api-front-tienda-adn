@@ -5,6 +5,7 @@ import { ListarProductoComponent } from './components/listar-producto/listar-pro
 import { BorrarProductoComponent } from './components/borrar-producto/borrar-producto.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ActualizarProductoComponent } from './components/actualizar-producto/actualizar-producto.component';
+import { ComprarProductoComponent } from './components/comprar-producto/comprar-producto.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'actualizar',
         component: ActualizarProductoComponent
+      },
+      { 
+        path: 'comprar',
+        component: ComprarProductoComponent
       }
     ]
   }
