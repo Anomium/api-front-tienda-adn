@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
 })
 export class CrearSoporteComponent implements OnInit {
   soporteForm: FormGroup;
-  valorId: number;
 
   constructor(protected soporteService: SoporteService) { }
 
@@ -18,7 +17,7 @@ export class CrearSoporteComponent implements OnInit {
     this.construirFormularioProducto();
   }
 
-  public crear():number {
+  public crear() {
     this.soporteService.guardar(this.soporteForm.value)
       .subscribe(() => {
         Swal.fire({
@@ -26,10 +25,8 @@ export class CrearSoporteComponent implements OnInit {
           title:'Agregado',
           text: 'Se actualizó la consignación correctamente'
         })
-        this.valorId = 1;
       }
     );
-    return this.valorId;
   }
 
   private construirFormularioProducto() {
