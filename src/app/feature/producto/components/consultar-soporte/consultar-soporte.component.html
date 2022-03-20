@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3>Lista productos</h3>
+    </div>
+    <div>
+      <div class="card-body">
+        <table class="table table table-hover">
+          <thead>
+            <tr class="text-center">
+              <th>Id</th>
+              <th>Descripcion</th>
+              <th>Fecha a solucionar</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of listarSoporte" class="text-center">
+            <tr>
+              <td>{{item.id}}</td>
+              <td>{{item.descripcion}}</td>
+              <td>{{item.fechaASolucionar}}</td>
+              <td>{{item.estado}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

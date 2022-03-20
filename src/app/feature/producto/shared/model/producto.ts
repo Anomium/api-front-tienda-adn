@@ -4,5 +4,5 @@ export class Producto {
     precio: number;
     cantidad: number;
     fechaCreacion: string;
-
+    
 }

@@ -8,6 +8,9 @@ export class ProductoPage {
     private inputIdProducto = element(by.id('idProducto'));
     private inputDescripcionProducto = element(by.id('descripcionProducto'));
     private listaProductos = element.all(by.css('ul.productos li'));
+    private linkSoporte = element(by.id('linkSoporte'));
+    private linkCrearSoporte = element(by.id('linkCrearSoporte'));
+
 
     async clickBotonCrearProductos() {
         await this.linkCrearProducto.click();
@@ -23,6 +26,14 @@ export class ProductoPage {
     
     async clickBotonComprarProducto() {
         await this.linkComprarProducto.click();
+    }
+
+    async clickBotonSoporte() {
+        await this.linkSoporte.click;
+    }
+
+    async clickBotonCrearSoporte() {
+        await this.linkCrearSoporte.click;
     }
 
     async ingresarId(idProducto) {

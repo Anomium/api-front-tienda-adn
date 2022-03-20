@@ -6,6 +6,8 @@ import { BorrarProductoComponent } from './components/borrar-producto/borrar-pro
 import { ProductoComponent } from './components/producto/producto.component';
 import { ActualizarProductoComponent } from './components/actualizar-producto/actualizar-producto.component';
 import { ComprarProductoComponent } from './components/comprar-producto/comprar-producto.component';
+import { SoporteComponent } from './components/consultar-soporte/consultar-soporte.component';
+import { CrearSoporteComponent } from './components/crear-soporte/crear-soporte.component';
 
 
 const routes: Routes = [
@@ -32,6 +34,14 @@ const routes: Routes = [
       { 
         path: 'comprar',
         component: ComprarProductoComponent
+      },
+      {
+        path: 'soporte',
+        component: SoporteComponent
+      },
+      {
+        path: 'crearSoporte',
+        component: CrearSoporteComponent
       }
     ]
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Producto } from '@producto/shared/model/producto';
 import { ProductoService } from '@producto/shared/service/producto.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -17,39 +18,37 @@ export class ActualizarProductoComponent implements OnInit {
   constructor(private productoService: ProductoService) { }
 
   ngOnInit(): void {
-    this.construirFormularioProducto();
+    this.construirFormularioProducto(this.producto);
     this.consultar();
+    console.log(this.producto.nombre)
   }
 
   consultar() {
     let id = localStorage.getItem('id');
-    
-    this.productoService.consultar()
-    .subscribe(data => {
-      this.producto = data.find(producto => {
-        if(producto.id+"" === id+"") {
-          this.producto = producto
-          this.listaProductos = [this.producto] 
-        }
-      });
-      
-    });
-    
+    this.productoService.consultarPorId(id)
+    .subscribe(data => this.producto = data);
   }
 
   actualizarProducto() {
-    console.log(this.actualizarProductoForm.value)
-    this.productoService.actualizar(this.actualizarProductoForm.value)
-    .subscribe(data => console.log(data));
+    this.construirFormularioProducto(this.producto);
+    
+    this.productoService.actualizar(this.producto)
+    .subscribe(() => {
+      Swal.fire({
+        icon:'info',
+        title:'Actualizado',
+        text: 'Se actualizó la consignación correctamente'
+      })
+    })
   }
 
-  private construirFormularioProducto() {
+  private construirFormularioProducto(producto: Producto) {
     this.actualizarProductoForm = new FormGroup({
-      id: new FormControl('',[Validators.required]),
-      nombre: new FormControl('',[Validators.required]),
-      precio: new FormControl('',[Validators.required]),
-      cantidad: new FormControl('',[Validators.required]),
-      fechaCreacion: new FormControl('',[Validators.required])
+      id: new FormControl(producto.id,[Validators.required]),
+      nombre: new FormControl(producto.nombre,[Validators.required]),
+      precio: new FormControl(producto.precio,[Validators.required]),
+      cantidad: new FormControl(producto.cantidad,[Validators.required]),
+      fechaCreacion: new FormControl(producto.fechaCreacion,[Validators.required])
 
     });
   }

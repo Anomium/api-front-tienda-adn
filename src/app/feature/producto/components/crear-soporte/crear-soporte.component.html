@@ -1,0 +1,25 @@
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Registrar Soporte</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="soporteForm">
+          <div class="form-group">
+            <div>
+              <label>Descripcion:</label>
+            </div>
+            <div>
+              <textarea validar type="text" id="descripcion" name="descripcion" placeholder="Crescripcion" class="form-control"
+                formControlName="descripcion"></textarea>
+            </div>
+          </div>
+          <br>
+          <button type="button" class="btn btn-primary" mat-raised-button (click)="crear()">
+            Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../../shared/service/producto.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-producto',
@@ -17,9 +18,14 @@ export class CrearProductoComponent implements OnInit {
 
   crear() {
     this.productoServices.guardar(this.productoForm.value)
-    .subscribe(
-      err => console.error(err)
+    .subscribe(() => 
+      Swal.fire({
+        icon:'info',
+        title:'Agregado',
+        text: 'Se agregado correctamente al carrito de compra.'
+      })
     )
+    this.construirFormularioProducto();
   }
 
   private construirFormularioProducto() {

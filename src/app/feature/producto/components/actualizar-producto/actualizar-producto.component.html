@@ -3,7 +3,7 @@
       <div class="card-header">
         <h3>Actualizar Producto</h3>
       </div>
-      <div *ngFor="let item of listaProductos">
+      <div >
         <div class="card-body">
           <form [formGroup]="actualizarProductoForm">
             <div class="form-group">
@@ -11,7 +11,7 @@
                 <label>Id:</label>
               </div>
               <div>
-                <input validar value={{item.id}} type="text" id="id" name="id" placeholder="Id Producto" class="form-control" formControlName="id">
+                <input validar type="text" id="id" name="id" placeholder="Id Producto" class="form-control" formControlName="id" [(ngModel)]="producto.id" disabled>
               </div>
             </div>
             <div class="form-group">
@@ -19,7 +19,7 @@
                 <label>Nombre:</label>
               </div>
               <div>
-                <input validar value={{item.nombre}} type="text" id="nombreProducto" name="nombre" placeholder="Nombre Producto" class="form-control"
+                <input validar [(ngModel)]="producto.nombre" type="text" id="nombreProducto" name="nombre" placeholder="Nombre Producto" class="form-control"
                   formControlName="nombre">
               </div>
             </div>
@@ -28,7 +28,7 @@
                 <label>Precio:</label>
               </div>
               <div>
-                <input validar value={{item.precio}} type="number" id="precioProducto" name="precio" placeholder="Precio producto"
+                <input validar [(ngModel)]="producto.precio" type="number" id="precioProducto" name="precio" placeholder="Precio producto"
                   class="form-control" formControlName="precio">
               </div>
             </div>
@@ -37,7 +37,7 @@
                 <label>Cantidad:</label>
               </div>
               <div>
-                <input validar value={{item.cantidad}} type="number" id="cantidadProducto" name="cantidad" placeholder="Cantidad producto"
+                <input validar [(ngModel)]="producto.cantidad" type="number" id="cantidadProducto" name="cantidad" placeholder="Cantidad producto"
                   class="form-control" formControlName="cantidad">
               </div>
             </div>
@@ -46,11 +46,12 @@
                 <label>Fecha Creacion:</label>
               </div>
               <div>
-                <input validar value={{item.fechaCreacion}} type="date" id="fechaCreacionProducto" name="fechaCreacion" placeholder="fecha de creacion producto"
-                  class="form-control" formControlName="fechaCreacion">
+                <input validar [(ngModel)]="producto.fechaCreacion" type="date" id="fechaCreacionProducto" name="fechaCreacion" placeholder="fecha de creacion producto"
+                  class="form-control" formControlName="fechaCreacion" disabled>
               </div>
             </div>
-            <button (click)="actualizarProducto()" type="button" class="btn btn-primary" mat-raised-button >
+            <br>
+            <button (click)="actualizarProducto()" type="button" class="btn btn-primary" mat-raised-button  [routerLink]="['/listar']">
               Guardar
             </button>
           </form>
