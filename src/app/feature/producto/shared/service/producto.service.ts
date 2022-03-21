@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core-service/http.service';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Producto } from '../model/producto';
 
@@ -17,8 +18,8 @@ export class ProductoService {
     return this.http.doGet<Producto>(`${environment.endpoint}/productos/${id}`, this.http.optsName('consultar productos'));
   }
 
-  public guardar(producto: Producto) {
-    return this.http.doPost<Producto, boolean>(`${environment.endpoint}/productos`, producto,
+  public guardar(producto: Producto): Observable<number> {
+    return this.http.doPost<Producto, number>(`${environment.endpoint}/productos`, producto,
                                                 this.http.optsName('crear'));
   }
 

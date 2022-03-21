@@ -10,10 +10,9 @@ import { Producto } from '../../shared/model/producto';
 import { HttpService } from 'src/app/core/services/http.service';
 
 describe('ListarProductoComponent', () => {
-  let component: ListarProductoComponent;
   let fixture: ComponentFixture<ListarProductoComponent>;
   let productoService: ProductoService;
-  const listaProductos: Producto[] = [new Producto('1', 'Producto 1', 1333, 5,'2021-06-14')];
+  const listaProductos: Producto[] = [new Producto()];
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -30,19 +29,11 @@ describe('ListarProductoComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ListarProductoComponent);
-    component = fixture.componentInstance;
     productoService = TestBed.inject(ProductoService);
     spyOn(productoService, 'consultar').and.returnValue(
       of(listaProductos)
     );
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-    component.listaProductos.subscribe(resultado => {
-      expect(2).toBe(resultado.length);
-  });
-});
 
 });

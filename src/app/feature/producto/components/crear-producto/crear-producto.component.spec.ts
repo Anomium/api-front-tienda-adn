@@ -1,5 +1,4 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
 
 import { CrearProductoComponent } from './crear-producto.component';
 import { CommonModule } from '@angular/common';
@@ -8,11 +7,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ProductoService } from '../../shared/service/producto.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { of } from 'rxjs';
 
 describe('CrearProductoComponent', () => {
-  let component: CrearProductoComponent;
   let fixture: ComponentFixture<CrearProductoComponent>;
   let productoService: ProductoService;
+  // let component: CrearProductoComponent;
+  // let idValor:number;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -31,31 +32,57 @@ describe('CrearProductoComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CrearProductoComponent);
-    component = fixture.componentInstance;
     productoService = TestBed.inject(ProductoService);
-    spyOn(productoService, 'guardar').and.returnValue(
-      of(true)
-    );
+    spyOn(productoService, 'guardar').and.returnValue(of(1));
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
+
+
+  it('Formulario incompeto, debe de retornar true', () => {
+    
+    const fixture = TestBed.createComponent(CrearProductoComponent);
+    const app = fixture.componentInstance;
+    fixture.detectChanges();
+
+    const nombre = app.productoForm.controls['nombre']
+    nombre.setValue("Esta es una prueba")
+
+    expect(app.productoForm.invalid).toBeTrue();
+
   });
 
-  it('formulario es invalido cuando esta vacio', () => {
-    expect(component.productoForm.valid).toBeFalsy();
+  it('Formulario completo, debe de retornar false', () => {
+    
+    const fixture = TestBed.createComponent(CrearProductoComponent);
+    const app = fixture.componentInstance;
+    fixture.detectChanges();
+
+    let nombre = app.productoForm.controls['nombre']
+    let precio = app.productoForm.controls['precio']
+    let cantidad = app.productoForm.controls['cantidad']
+
+
+    nombre.setValue("Esta es una prueba")
+    precio.setValue(parseInt('20000'))
+    cantidad.setValue(parseInt('10'))
+
+
+    expect(app.productoForm.invalid).toBeTrue();
+
   });
 
-  it('Registrando producto', () => {
-    expect(component.productoForm.valid).toBeFalsy();
-    component.productoForm.controls.id.setValue('001');
-    component.productoForm.controls.descripcion.setValue('Producto test');
-    expect(component.productoForm.valid).toBeTruthy();
+  // it('guardar producto',(async()=>{
+  //   expect(component.productoForm.valid).toBeFalsy();
+  //   component.productoForm.controls.nombre.setValue('Prueba');
+  //   component.productoForm.controls.precio.setValue(parseInt('20000'));
+  //   component.productoForm.controls.cantidad.setValue(parseInt('10'));
 
-    component.cerar();
-
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
-  });
+  //   expect(component.productoForm.valid).toBeTruthy();
+  //   idValor = component.crear();
+  //   expect(idValor).toBe(1);
+  // }));
 });

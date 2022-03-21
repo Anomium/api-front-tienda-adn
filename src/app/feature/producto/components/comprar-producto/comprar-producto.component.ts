@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Carrito } from '@producto/shared/model/carrito';
 import { CarritoCompra } from '@producto/shared/model/carritoCompra';
 import { CarritoDelete } from '@producto/shared/model/carritoDelete';
@@ -23,7 +23,6 @@ export class ComprarProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.consultar();
-    this.construirFormularioCarrito();
   }
 
   consultar() {
@@ -52,12 +51,6 @@ export class ComprarProductoComponent implements OnInit {
       carrito.id
     );
     this.carritoService.eliminar(this.carritoDelete);
-  }
-
-  construirFormularioCarrito(){
-    this.carritoCompraForm = new FormGroup({
-      cupon: new FormControl(this.carritoCompra.cupon,[Validators.required])
-    })
   }
 
   limpiarFormulario(){
