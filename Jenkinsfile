@@ -50,10 +50,8 @@ pipeline {
     }
 
     stage('Test Unit') {
-      steps{
-        echo "------------>Test<------------"
-        //sh 'npm run test -- --watch=false --browsers ChromeHeadless'
-		    sh 'ng test --watch=false --browsers=ChromeHeadless'
+      steps {
+        sh 'npm run test'
       }
     }
 
