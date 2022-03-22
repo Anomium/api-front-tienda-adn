@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DialogoService } from '@producto/shared/service/dialogo.service';
 import { SoporteService } from '@producto/shared/service/soporte.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-soporte',
@@ -11,7 +11,8 @@ import Swal from 'sweetalert2';
 export class CrearSoporteComponent implements OnInit {
   soporteForm: FormGroup;
 
-  constructor(protected soporteService: SoporteService) { }
+  constructor(protected soporteService: SoporteService,
+    protected dialogo: DialogoService) { }
 
   ngOnInit(): void {
     this.construirFormularioProducto();
@@ -20,11 +21,7 @@ export class CrearSoporteComponent implements OnInit {
   public crear() {
     this.soporteService.guardar(this.soporteForm.value)
       .subscribe(() => {
-        Swal.fire({
-          icon:'info',
-          title:'Agregado',
-          text: 'Se guardo correctamente'
-        })
+        this.dialogo.mostrarMensajeExitoDialog('Se guardo correctamente')
       }
     );
   }

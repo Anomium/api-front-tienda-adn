@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Producto } from '@producto/shared/model/producto';
+import { DialogoService } from '@producto/shared/service/dialogo.service';
 import { ProductoService } from '@producto/shared/service/producto.service';
-import Swal from 'sweetalert2';
 
 
 @Component({
@@ -16,7 +16,8 @@ export class ActualizarProductoComponent implements OnInit {
   id:string;
 
   producto: Producto = new Producto();
-  constructor(private productoService: ProductoService) { }
+  constructor(private productoService: ProductoService, 
+    protected dialogo: DialogoService) { }
 
   ngOnInit(): void {
     this.construirFormularioProducto(this.producto);
@@ -35,11 +36,7 @@ export class ActualizarProductoComponent implements OnInit {
     
     this.productoService.actualizar(this.producto)
     .subscribe(() => {
-      Swal.fire({
-        icon:'info',
-        title:'Actualizado',
-        text: 'Se actualizó correctamente'
-      })
+      this.dialogo.mostrarMensajeInformacionDialog('Se actualizó correctamente')
     })
   }
 

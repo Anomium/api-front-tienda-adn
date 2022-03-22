@@ -4,7 +4,7 @@ import { Carrito } from '@producto/shared/model/carrito';
 import { CarritoCompra } from '@producto/shared/model/carritoCompra';
 import { CarritoDelete } from '@producto/shared/model/carritoDelete';
 import { CarritoService } from '@producto/shared/service/carrito.service';
-import Swal from 'sweetalert2';
+import { DialogoService } from '@producto/shared/service/dialogo.service';
 
 @Component({
   selector: 'app-comprar-producto',
@@ -19,7 +19,8 @@ export class ComprarProductoComponent implements OnInit {
 
   carritoCompraForm: FormGroup;
 
-  constructor(protected carritoService: CarritoService) { }
+  constructor(protected carritoService: CarritoService,
+    protected dialogo: DialogoService) { }
 
   ngOnInit(): void {
     this.consultar();
@@ -36,11 +37,7 @@ export class ComprarProductoComponent implements OnInit {
     this.carritoCompra.cantidad = carrito.cantidad;
     this.carritoService.comprar(this.carritoCompra)
       .subscribe(() =>
-        Swal.fire({
-          icon:'info',
-          title:'Agregado',
-          text: 'Se ha comprado el producto con exitos.'
-        })
+        this.dialogo.mostrarMensajeExitoDialog('Se ha comprado el producto con exitos.')
       );
     this.consultar();
     this.limpiarFormulario();

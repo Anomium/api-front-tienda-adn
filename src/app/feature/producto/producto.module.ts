@@ -11,6 +11,7 @@ import { ComprarProductoComponent } from './components/comprar-producto/comprar-
 import { SoporteComponent } from './components/consultar-soporte/consultar-soporte.component';
 import { CrearSoporteComponent } from './components/crear-soporte/crear-soporte.component';
 import { SoporteService } from './shared/service/soporte.service';
+import { DialogoService } from './shared/service/dialogo.service';
 
 
 
@@ -28,6 +29,6 @@ import { SoporteService } from './shared/service/soporte.service';
     ProductoRoutingModule,
     SharedModule
   ],
-  providers: [ProductoService, SoporteService]
+  providers: [ProductoService, SoporteService, DialogoService]
 })
 export class ProductoModule { }

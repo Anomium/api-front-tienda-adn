@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../../shared/service/producto.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { Producto } from '@producto/shared/model/producto';
+import { DialogoService } from '@producto/shared/service/dialogo.service';
 
 @Component({
   selector: 'app-crear-producto',
@@ -14,21 +14,19 @@ export class CrearProductoComponent implements OnInit {
   producto: Producto = new Producto();
   valorId:number;
 
-  constructor(protected productoServices: ProductoService) { }
+  constructor(protected productoServices: ProductoService, 
+    protected dialogo: DialogoService) { }
   
   ngOnInit() {
+    
     this.construirFormularioProducto();
   }
 
   crear():number {
     this.productoServices.guardar(this.producto)
-    .subscribe((data) => {
-        Swal.fire({
-          icon:'info',
-          title:'Agregado',
-          text: 'Se agregado correctamente al carrito de compra.'
-        })
-        this.valorId = data
+      .subscribe((data) =>{
+        this.valorId = data;
+        this.dialogo.mostrarMensajeExitoDialog('Se ha registrado exitosamente.');
       }
     )
     return this.valorId
@@ -47,5 +45,6 @@ export class CrearProductoComponent implements OnInit {
 
     });
   }
+
 
 }

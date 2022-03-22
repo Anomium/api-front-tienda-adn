@@ -4,7 +4,7 @@ import { ProductoService } from '@producto/shared/service/producto.service';
 import { Producto } from '@producto/shared/model/producto';
 import { Carrito } from '@producto/shared/model/carrito';
 import { CarritoService } from '@producto/shared/service/carrito.service';
-import Swal from 'sweetalert2';
+import { DialogoService } from '@producto/shared/service/dialogo.service';
 
 @Component({
   selector: 'app-listar-producto',
@@ -16,7 +16,10 @@ export class ListarProductoComponent implements OnInit {
   carrito: Carrito;
   valorId:number;
 
-  constructor(protected productoService: ProductoService, protected carritoService: CarritoService, private router: Router) { }
+  constructor(protected productoService: ProductoService, 
+    protected carritoService: CarritoService, 
+    private router: Router,
+    protected dialogService: DialogoService) { }
 
   ngOnInit() {
     this.consultar();
@@ -50,11 +53,7 @@ export class ListarProductoComponent implements OnInit {
 
     this.carritoService.crearCarrito(this.carrito)
     .subscribe((data) => {
-      Swal.fire({
-        icon:'info',
-        title:'Agregado',
-        text: 'Se agregado correctamente al carrito de compra.'
-      })
+      this.dialogService.mostrarMensajeInformacionDialog('Se agregado correctamente al carrito de compra.')
       this.valorId = data;
     });
     return this.valorId;
