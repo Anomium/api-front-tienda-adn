@@ -10,6 +10,7 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { ComprarProductoComponent } from './components/comprar-producto/comprar-producto.component';
 import { SoporteComponent } from './components/consultar-soporte/consultar-soporte.component';
 import { CrearSoporteComponent } from './components/crear-soporte/crear-soporte.component';
+import { SoporteService } from './shared/service/soporte.service';
 
 
 
@@ -27,6 +28,6 @@ import { CrearSoporteComponent } from './components/crear-soporte/crear-soporte.
     ProductoRoutingModule,
     SharedModule
   ],
-  providers: [ProductoService]
+  providers: [ProductoService, SoporteService]
 })
 export class ProductoModule { }

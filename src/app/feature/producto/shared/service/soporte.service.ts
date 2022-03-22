@@ -3,9 +3,7 @@ import { HttpService } from '@core/services/http.service';
 import { environment } from 'src/environments/environment';
 import { Soporte } from '../model/soporte';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SoporteService {
 
   constructor(protected http: HttpService) { }
