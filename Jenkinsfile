@@ -51,7 +51,7 @@ pipeline {
 
     stage('Test Unit') {
       steps {
-        sh 'npm run test'
+        sh 'ng test --watch=false --browsers=ChromeHeadless'
       }
     }
 
