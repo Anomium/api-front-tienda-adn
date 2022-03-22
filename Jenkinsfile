@@ -49,14 +49,14 @@ pipeline {
       }
     }
 
-    stage('Test Unit') {
-      steps {
-        echo "------------>Test<------------"
-        //sh 'npm run test -- --watch=false --browsers ChromeHeadless'
-        sh 'ng test --watch=false --browsers=ChromeHeadless'
+    // stage('Test Unit') {
+    //   steps {
+    //     echo "------------>Test<------------"
+    //     //sh 'npm run test -- --watch=false --browsers ChromeHeadless'
+    //     sh 'ng test --watch=false --browsers=ChromeHeadless'
         
-      }
-    }
+    //   }
+    // }
 
     // stage('Test end-to-end') {
     //     steps{
