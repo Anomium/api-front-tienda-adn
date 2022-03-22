@@ -46,4 +46,5 @@ describe('ListarProductoComponent', () => {
     expect(component.listaProductos.length).toBe(1);
   })
 
+
 });

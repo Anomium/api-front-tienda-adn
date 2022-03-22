@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Carrito } from '../model/carrito';
 import { CarritoCompra } from '../model/carritoCompra';
@@ -12,13 +13,12 @@ export class CarritoService {
 
   constructor(protected http: HttpService) { }
 
-  public crearCarrito(carrito: Carrito) {
-    return this.http.doPost<Carrito, boolean>(`${environment.endpoint}/carritos`, carrito,
+  public crearCarrito(carrito: Carrito): Observable<number> {
+    return this.http.doPost<Carrito, number>(`${environment.endpoint}/carritos`, carrito,
     this.http.optsName('crear'));
   }
 
   public comprar(carrito: CarritoCompra) {
-    console.log(`${environment.endpoint}/carritos/${carrito.id}`)
     return this.http.doPut<CarritoCompra, boolean>(`${environment.endpoint}/carritos`, carrito,
     this.http.optsName('actualizar'));
   }

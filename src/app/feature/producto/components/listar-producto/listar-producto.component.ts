@@ -14,6 +14,8 @@ import Swal from 'sweetalert2';
 export class ListarProductoComponent implements OnInit {
   public listaProductos: Producto[];
   carrito: Carrito;
+  valorId:number;
+
   constructor(protected productoService: ProductoService, protected carritoService: CarritoService, private router: Router) { }
 
   ngOnInit() {
@@ -37,7 +39,7 @@ export class ListarProductoComponent implements OnInit {
     .subscribe(err => console.log(err));
   }
 
-  crearCarrito(producto: Producto) {
+  crearCarrito(producto: Producto): number {
     this.carrito = new Carrito(producto.id, 
       producto.nombre, 
       producto.precio, 
@@ -47,12 +49,14 @@ export class ListarProductoComponent implements OnInit {
     );
 
     this.carritoService.crearCarrito(this.carrito)
-    .subscribe(() => {
+    .subscribe((data) => {
       Swal.fire({
         icon:'info',
         title:'Agregado',
         text: 'Se agregado correctamente al carrito de compra.'
       })
+      this.valorId = data;
     });
+    return this.valorId;
   }
 }

@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class ActualizarProductoComponent implements OnInit {
   public listaProductos: Producto[];
   actualizarProductoForm: FormGroup;
+  id:string;
 
   producto: Producto = new Producto();
   constructor(private productoService: ProductoService) { }
@@ -24,8 +25,8 @@ export class ActualizarProductoComponent implements OnInit {
   }
 
   consultar() {
-    let id = localStorage.getItem('id');
-    this.productoService.consultarPorId(id)
+    this.id = localStorage.getItem('id');
+    this.productoService.consultarPorId(this.id)
     .subscribe(data => this.producto = data);
   }
 
