@@ -53,8 +53,8 @@ pipeline {
       steps {
         echo "------------>Test<------------"
         //sh 'npm run test -- --watch=false --browsers ChromeHeadless'
-        // sh 'ng test --watch=false --browsers=ChromeHeadless'
-        ng test --no-watch --no-progress --browsers=ChromeHeadless
+        sh 'ng test --watch=false --browsers=ChromeHeadless'
+        
       }
     }
 
