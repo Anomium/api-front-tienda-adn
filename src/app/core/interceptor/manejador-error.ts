@@ -1,15 +1,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable } from '@angular/core';
+import { DialogoErrorService } from '@producto/shared/service/dialogo-error.service';
 import { environment } from '../../../environments/environment';
 import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
 
 @Injectable()
 export class ManejadorError implements ErrorHandler {
-  constructor() {}
+  constructor(protected servicioErrorDialogo: DialogoErrorService) {}
 
   handleError(error: string | Error): void {
     const mensajeError = this.mensajePorDefecto(error);
     this.imprimirErrorConsola(mensajeError);
+    this.servicioErrorDialogo.mostrarMensajeErrorDialog(mensajeError);
   }
 
   private mensajePorDefecto(error) {

@@ -27,14 +27,14 @@ describe('ProductoService', () => {
   });
 
   it('should be created', () => {
-    const consignacionService: ProductoService = TestBed.inject(ProductoService);
-    expect(consignacionService).toBeTruthy();
+    const productoService: ProductoService = TestBed.inject(ProductoService);
+    expect(productoService).toBeTruthy();
   }); 
 
   it('deberia crear productos ', () => {
-    const consignacion = new Producto('1','Cereal',1000,2000,'creado');
+    const producto = new Producto('1','Cereal',1000,2000,'creado');
 
-    service.guardar(consignacion).subscribe((respuesta) => {
+    service.guardar(producto).subscribe((respuesta) => {
       expect(respuesta).toEqual(1);
     });
     const req = httpMock.expectOne(apiEndpointProducto);

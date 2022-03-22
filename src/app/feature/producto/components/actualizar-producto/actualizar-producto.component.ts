@@ -38,7 +38,7 @@ export class ActualizarProductoComponent implements OnInit {
       Swal.fire({
         icon:'info',
         title:'Actualizado',
-        text: 'Se actualizó la consignación correctamente'
+        text: 'Se actualizó correctamente'
       })
     })
   }

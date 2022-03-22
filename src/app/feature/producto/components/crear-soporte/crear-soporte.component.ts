@@ -23,7 +23,7 @@ export class CrearSoporteComponent implements OnInit {
         Swal.fire({
           icon:'info',
           title:'Agregado',
-          text: 'Se actualizó la consignación correctamente'
+          text: 'Se guardo correctamente'
         })
       }
     );
