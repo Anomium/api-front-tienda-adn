@@ -42,4 +42,46 @@ describe('ProductoService', () => {
     req.event(new HttpResponse<number>({body: 1}));
   });
 
+  it('deberia actualizar producto',()=>{
+    const producto = new Producto('1','Cereal',1000,2000,'creado');
+    service.actualizar(producto).subscribe(()=>{});
+    const req = httpMock.expectOne(`${apiEndpointProducto}/1`);
+    expect(req.request.method).toBe('PUT');
+    req.flush(producto);
+  })
+
+  it('deberia eliminar un producto', () => {
+    const dummyProducto = new Producto('1','Cereal',1000,2000,'creado');
+    service.eliminar(dummyProducto).subscribe((respuesta) => {
+      expect(respuesta).toEqual(true);
+    });
+    const req = httpMock.expectOne(`${apiEndpointProducto}/1`);
+    expect(req.request.method).toBe('DELETE');
+    req.event(new HttpResponse<boolean>({body: true}));
+  });
+
+  it('deberia listar productos', () => {
+    const dummyProductos = [
+      new Producto('1','Cereal1',1000,2000,'creado'), 
+      new Producto('2','Cereal2',1000,2000,'creado')
+    ];
+    service.consultar().subscribe(productos => {
+      expect(productos.length).toBe(2);
+      expect(productos).toEqual(dummyProductos);
+    });
+    const req = httpMock.expectOne(apiEndpointProducto);
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyProductos);
+  });
+
+  it('deberia listar producto', () => {
+    const dummyProductos = new Producto('1','Cereal1',1000,2000,'creado');
+    service.consultarPorId('1').subscribe(productos => {
+      expect(productos).toEqual(dummyProductos);
+    });
+    const req = httpMock.expectOne(`${apiEndpointProducto}/1`);
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyProductos);
+  });
+
 });

@@ -1,4 +1,7 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ErrorCamposPlantillaComponent } from './error-campos-plantilla.component';
 
@@ -8,7 +11,13 @@ describe('ErrorCamposPlantillaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorCamposPlantillaComponent ]
+      declarations: [ ErrorCamposPlantillaComponent ],
+      imports:[
+        CommonModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule
+      ],
     })
     .compileComponents();
   }));

@@ -1,10 +1,8 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  RouterTestingModule
-} from '@angular/router/testing';
 import { BorrarProductoComponent } from './borrar-producto.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('BorrarProductoComponent', () => {
   let component: BorrarProductoComponent;
@@ -13,10 +11,11 @@ describe('BorrarProductoComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BorrarProductoComponent ],
-      imports: [
+      imports:[
         CommonModule,
         HttpClientModule,
-        RouterTestingModule
+        ReactiveFormsModule,
+        FormsModule
       ],
     })
     .compileComponents();
