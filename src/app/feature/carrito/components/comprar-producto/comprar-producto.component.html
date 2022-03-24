@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+      <div class="card col-md-2">
+        <div class="card-header">
+          <h3>Cupones</h3>
+        </div>
+        <div>
+          <div class="card-body">
+            <form [formGroup]="carritoCompraFormBuilder" (ngSubmit)="enviado()">
+              <div>
+                <input formControlName="cupon" type="text" id="cupon" placeholder="Cupon" class="form-control">              
+              </div> 
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="card col-md-10">
+        <div class="card-header">
+          <h3>Lista carritos</h3>
+        </div>
+        <div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <caption>Esta es la descripcion de la tabla</caption>
+              <thead>
+                <tr class="text-center">
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Precio Unitario</th>
+                  <th>Precio total</th>
+                  <th>Cantidad</th>
+                  <th>Estado Compra</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let item of listaCarrito" class="text-center">
+                <tr>
+                  <td>{{item.id}}</td>
+                  <td>{{item.nombre}}</td>
+                  <td>{{item.precio}}</td>
+                  <td>{{item.precioTotal}}</td>
+                  <td>{{item.cantidad}}</td>
+                  <td>{{item.estadoCompra}}</td>
+                  <td>
+                    <button (click)="comprar(item)" class="btn btn-primary">Comprar</button>
+                  </td>
+                  <td>
+                    <button (click)="eliminar(item)" class="btn btn-danger">Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <td>
+              <button (click)="consultar()" class="btn btn-danger">Eliminar</button>
+            </td>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
