@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductoService } from '@producto/shared/service/producto.service';
 import { Producto } from '@producto/shared/model/producto';
-import { Carrito } from '@producto/shared/model/carrito';
-import { CarritoService } from '@producto/shared/service/carrito.service';
+import { Carrito } from 'src/app/feature/carrito/components/shared/model/carrito';
+import { CarritoService } from 'src/app/feature/carrito/components/shared/service/carrito.service';
 import { DialogoService } from '@producto/shared/service/dialogo.service';
 
 @Component({

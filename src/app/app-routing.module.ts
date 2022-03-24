@@ -7,7 +7,11 @@ import { HomeComponent } from '@home/home.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
-  { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) }
+  { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
+  { 
+    path: 'carrito', 
+    loadChildren: () => import('./feature/carrito/carrito.module').then(mod => mod.CarritoModule) 
+  }
 ];
 
 @NgModule({

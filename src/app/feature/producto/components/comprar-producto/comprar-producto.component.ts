@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Carrito } from '@producto/shared/model/carrito';
-import { CarritoCompra } from '@producto/shared/model/carritoCompra';
-import { CarritoDelete } from '@producto/shared/model/carritoDelete';
-import { CarritoService } from '@producto/shared/service/carrito.service';
+import { Carrito } from 'src/app/feature/carrito/components/shared/model/carrito';
+import { CarritoService } from 'src/app/feature/carrito/components/shared/service/carrito.service';
 import { DialogoService } from '@producto/shared/service/dialogo.service';
+import { CarritoCompra } from 'src/app/feature/carrito/components/shared/model/carritoCompra';
+import { CarritoDelete } from 'src/app/feature/carrito/components/shared/model/carritoDelete';
 
 @Component({
   selector: 'app-comprar-producto',

@@ -3,9 +3,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
-import { Carrito } from '@producto/shared/model/carrito';
+import { Carrito } from 'src/app/feature/carrito/components/shared/model/carrito';
 import { CarritoCompra } from '@producto/shared/model/carritoCompra';
-import { CarritoService } from '@producto/shared/service/carrito.service';
+import { CarritoService } from 'src/app/feature/carrito/components/shared/service/carrito.service';
 import { of } from 'rxjs';
 
 import { ComprarProductoComponent } from './comprar-producto.component';

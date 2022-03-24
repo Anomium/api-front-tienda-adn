@@ -7,6 +7,7 @@ import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
+import { CarritoModule } from './feature/carrito/carrito.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
+    CarritoModule,
     CoreModule,
     FormsModule
   ],

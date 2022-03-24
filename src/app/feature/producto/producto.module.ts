@@ -7,11 +7,11 @@ import { SharedModule } from '@shared/shared.module';
 import { ProductoService } from './shared/service/producto.service';
 import { ActualizarProductoComponent } from './components/actualizar-producto/actualizar-producto.component';
 import { ProductoComponent } from './components/producto/producto.component';
-import { ComprarProductoComponent } from './components/comprar-producto/comprar-producto.component';
 import { SoporteComponent } from './components/consultar-soporte/consultar-soporte.component';
 import { CrearSoporteComponent } from './components/crear-soporte/crear-soporte.component';
 import { SoporteService } from './shared/service/soporte.service';
 import { DialogoService } from './shared/service/dialogo.service';
+import { CarritoService } from '../carrito/components/shared/service/carrito.service';
 
 
 
@@ -21,7 +21,6 @@ import { DialogoService } from './shared/service/dialogo.service';
     ListarProductoComponent,
     ProductoComponent,
     ActualizarProductoComponent,
-    ComprarProductoComponent,
     SoporteComponent,
     CrearSoporteComponent
   ],
@@ -29,6 +28,6 @@ import { DialogoService } from './shared/service/dialogo.service';
     ProductoRoutingModule,
     SharedModule
   ],
-  providers: [ProductoService, SoporteService, DialogoService]
+  providers: [ProductoService, SoporteService, DialogoService, CarritoService]
 })
 export class ProductoModule { }

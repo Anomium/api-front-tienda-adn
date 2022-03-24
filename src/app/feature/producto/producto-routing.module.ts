@@ -4,7 +4,6 @@ import { CrearProductoComponent } from './components/crear-producto/crear-produc
 import { ListarProductoComponent } from './components/listar-producto/listar-producto.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ActualizarProductoComponent } from './components/actualizar-producto/actualizar-producto.component';
-import { ComprarProductoComponent } from './components/comprar-producto/comprar-producto.component';
 import { SoporteComponent } from './components/consultar-soporte/consultar-soporte.component';
 import { CrearSoporteComponent } from './components/crear-soporte/crear-soporte.component';
 
@@ -25,10 +24,6 @@ const routes: Routes = [
       {
         path: 'actualizar',
         component: ActualizarProductoComponent
-      },
-      {
-        path: 'comprar',
-        component: ComprarProductoComponent
       },
       {
         path: 'soporte',
