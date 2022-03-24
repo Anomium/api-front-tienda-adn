@@ -26,7 +26,7 @@ const routes: Routes = [
         path: 'actualizar',
         component: ActualizarProductoComponent
       },
-      { 
+      {
         path: 'comprar',
         component: ComprarProductoComponent
       },

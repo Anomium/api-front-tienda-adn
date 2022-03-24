@@ -19,11 +19,11 @@ export class ProductoPage {
     async clickBotonListarProductos() {
         await this.linkListarProductos.click();
     }
-    
+
     async clickBotonActualizarProducto() {
         await this.linkActualizarProducto.click();
     }
-    
+
     async clickBotonComprarProducto() {
         await this.linkComprarProducto.click();
     }

@@ -15,12 +15,12 @@ export class CarritoService {
 
   public crearCarrito(carrito: Carrito): Observable<number> {
     return this.http.doPost<Carrito, number>(`${environment.endpoint}/carritos`, carrito,
-    this.http.optsName('crear'));
+      this.http.optsName('crear'));
   }
 
   public comprar(carrito: CarritoCompra) {
     return this.http.doPut<CarritoCompra, boolean>(`${environment.endpoint}/carritos`, carrito,
-    this.http.optsName('actualizar'));
+      this.http.optsName('actualizar'));
   }
 
   public consultarCarritos() {
@@ -29,6 +29,6 @@ export class CarritoService {
 
   public eliminar(carrito: CarritoDelete) {
     return this.http.doDelete<boolean>(`${environment.endpoint}/carritos/${carrito.id}`,
-                                                 this.http.optsName('eliminar carrito'));
+      this.http.optsName('eliminar carrito'));
   }
 }

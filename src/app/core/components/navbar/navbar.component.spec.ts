@@ -12,7 +12,7 @@ describe('NavbarComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NavbarComponent ],
-      imports:[
+      imports: [
         CommonModule,
         HttpClientModule,
         ReactiveFormsModule,

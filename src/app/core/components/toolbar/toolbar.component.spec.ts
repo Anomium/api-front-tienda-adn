@@ -11,15 +11,15 @@ describe('ToolbarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToolbarComponent ],
-      imports:[
+      declarations: [ToolbarComponent],
+      imports: [
         CommonModule,
         HttpClientModule,
         ReactiveFormsModule,
         FormsModule
       ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

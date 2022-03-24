@@ -4,7 +4,7 @@ export class Producto {
     precio: number;
     cantidad: number;
     fechaCreacion: string;
-    
+
     constructor(id?: string, nombre?: string, precio?: number, cantidad?: number, fechaCreacion?: string) {
         this.id = id;
         this.nombre = nombre;

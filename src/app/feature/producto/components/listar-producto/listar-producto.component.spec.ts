@@ -10,7 +10,7 @@ import { Producto } from '../../shared/model/producto';
 import { HttpService } from 'src/app/core/services/http.service';
 
 describe('ListarProductoComponent', () => {
-  let component:ListarProductoComponent
+  let component: ListarProductoComponent;
   let fixture: ComponentFixture<ListarProductoComponent>;
   let productoService: ProductoService;
 
@@ -28,7 +28,7 @@ describe('ListarProductoComponent', () => {
   }));
 
   beforeEach(() => {
-    const listaProductos: Producto[] = [new Producto('1','Cereal',2000, 10,'2022-01-01')];
+    const listaProductos: Producto[] = [new Producto('1', 'Cereal', 2000, 10, '2022-01-01')];
     fixture = TestBed.createComponent(ListarProductoComponent);
     component = fixture.componentInstance;
     productoService = TestBed.inject(ProductoService);
@@ -40,11 +40,11 @@ describe('ListarProductoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  }); 
+  });
 
-  it('deberia llamar lista productos', ()=>{
+  it('deberia llamar lista productos', () => {
     expect(component.listaProductos.length).toBe(1);
-  })
+  });
 
 
 });

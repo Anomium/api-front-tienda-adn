@@ -19,7 +19,7 @@ export class SoporteComponent implements OnInit {
 
   consultar() {
     this.soporteService.consultar()
-      .subscribe(data => 
+      .subscribe(data =>
         this.listarSoporte = data
       );
   }

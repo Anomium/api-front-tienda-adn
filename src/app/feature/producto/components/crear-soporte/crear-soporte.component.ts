@@ -11,8 +11,7 @@ import { SoporteService } from '@producto/shared/service/soporte.service';
 export class CrearSoporteComponent implements OnInit {
   soporteForm: FormGroup;
 
-  constructor(protected soporteService: SoporteService,
-    protected dialogo: DialogoService) { }
+  constructor(protected soporteService: SoporteService, protected dialogo: DialogoService) { }
 
   ngOnInit(): void {
     this.construirFormularioProducto();
@@ -22,13 +21,12 @@ export class CrearSoporteComponent implements OnInit {
     this.soporteService.guardar(this.soporteForm.value)
       .subscribe(() => {
         this.dialogo.mostrarMensajeExitoDialog('Se guardo correctamente')
-      }
-    );
+      });
   }
 
   private construirFormularioProducto() {
     this.soporteForm = new FormGroup({
-      descripcion: new FormControl('',[Validators.required])
+      descripcion: new FormControl('', [Validators.required])
     });
   }
 

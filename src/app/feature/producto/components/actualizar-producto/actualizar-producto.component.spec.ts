@@ -16,19 +16,19 @@ describe('ActualizarProductoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ActualizarProductoComponent ],
+      declarations: [ActualizarProductoComponent],
       imports: [
         CommonModule,
         HttpClientModule,
         RouterTestingModule
       ],
-      providers:[ProductoService, HttpService]
+      providers: [ProductoService, HttpService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    producto = new Producto('1','Cereal',2000, 10,'2022-01-01');
+    producto = new Producto('1', 'Cereal', 2000, 10, '2022-01-01');
     fixture = TestBed.createComponent(ActualizarProductoComponent);
     component = fixture.componentInstance;
     productoService = TestBed.inject(ProductoService);
@@ -36,17 +36,13 @@ describe('ActualizarProductoComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // }); 
-
-  it('debería actualizar producto',()=>{
-    spyOn(productoService,'actualizar').and.callThrough();
-    const spy = spyOn(component,'actualizarProducto').and.callThrough();
+  it('debería actualizar producto', () => {
+    spyOn(productoService, 'actualizar').and.callThrough();
+    const spy = spyOn(component, 'actualizarProducto').and.callThrough();
     producto.id = '1';
     productoService.actualizar(producto);
     expect(spy);
     expect(spy).toBeDefined();
-  })
+  });
 
 });

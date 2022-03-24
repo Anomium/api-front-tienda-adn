@@ -17,7 +17,7 @@ describe('SoporteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SoporteComponent ],
+      declarations: [SoporteComponent],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -25,24 +25,24 @@ describe('SoporteComponent', () => {
       ],
       providers: [SoporteService, HttpService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    const listarSoportes:Soporte[] =[ new Soporte('1','prueba', '2022-01-01')];
+    const listarSoportes: Soporte[] = [new Soporte('1', 'prueba', '2022-01-01')];
     fixture = TestBed.createComponent(SoporteComponent);
     component = fixture.componentInstance;
     soporteService = TestBed.inject(SoporteService);
-    spyOn(soporteService,'consultar').and.returnValue(of(listarSoportes));
+    spyOn(soporteService, 'consultar').and.returnValue(of(listarSoportes));
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  }); 
-  
-  it('deberia llamar lista soportes', ()=>{
+  });
+
+  it('deberia llamar lista soportes', () => {
     expect(component.listarSoporte.length).toBe(1);
-  })
+  });
 
 });

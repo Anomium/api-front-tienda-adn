@@ -18,7 +18,7 @@ describe('CrearProductoComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ CrearProductoComponent ],
+      declarations: [CrearProductoComponent],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -27,9 +27,9 @@ describe('CrearProductoComponent', () => {
         FormsModule,
         SharedModule
       ],
-      providers: [ProductoService, HttpService,DatePipe],
+      providers: [ProductoService, HttpService, DatePipe],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -39,40 +39,35 @@ describe('CrearProductoComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
-
-
   it('Formulario incompeto, debe de retornar true', () => {
-    
-    const fixture = TestBed.createComponent(CrearProductoComponent);
-    const app = fixture.componentInstance;
+
+    const createComponentTestbed = TestBed.createComponent(CrearProductoComponent);
+    const app = createComponentTestbed.componentInstance;
     fixture.detectChanges();
 
-    const nombre = app.productoForm.controls['nombre']
-    nombre.setValue("Esta es una prueba")
+    const nombre = app.productoForm.controls['nombre'];
+    nombre.setValue('Esta es una prueba');
 
     expect(app.productoForm.invalid).toBeTrue();
 
   });
 
   it('Formulario completo, debe de retornar false', () => {
-    
-    const fixture = TestBed.createComponent(CrearProductoComponent);
-    const app = fixture.componentInstance;
+
+    const createComponentTestbed = TestBed.createComponent(CrearProductoComponent);
+    const app = createComponentTestbed.componentInstance;
     fixture.detectChanges();
 
-    let nombre = app.productoForm.controls['nombre']
-    let precio = app.productoForm.controls['precio']
-    let cantidad = app.productoForm.controls['cantidad']
-    let fechaCreacion = app.productoForm.controls['fechaCreacion']
+    const nombre = app.productoForm.controls['nombre'];
+    const precio = app.productoForm.controls['precio'];
+    const cantidad = app.productoForm.controls['cantidad'];
+    const fechaCreacion = app.productoForm.controls['fechaCreacion'];
 
 
-    nombre.setValue("Esta es una prueba")
-    precio.setValue(parseInt('20000'))
-    cantidad.setValue(parseInt('10'))
-    fechaCreacion.setValue(Date.now())
+    nombre.setValue('Esta es una prueba');
+    precio.setValue(parseInt('20000'));
+    cantidad.setValue(parseInt('10'));
+    fechaCreacion.setValue(Date.now());
 
     expect(app.productoForm.invalid).toBeFalse();
 
@@ -83,7 +78,7 @@ describe('CrearProductoComponent', () => {
   //   const fixture = TestBed.createComponent(CrearProductoComponent);
   //   const app = fixture.componentInstance;
   //   fixture.detectChanges();
-    
+
   //   expect(component.productoForm.valid).toBeTrue();
   //   app.productoForm.controls.nombre.setValue('Prueba');
   //   app.productoForm.controls.precio.setValue(parseInt('20000'));

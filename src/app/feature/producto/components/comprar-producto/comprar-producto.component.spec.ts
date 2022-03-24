@@ -18,7 +18,7 @@ describe('ComprarProductoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ComprarProductoComponent ],
+      declarations: [ComprarProductoComponent],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -26,7 +26,7 @@ describe('ComprarProductoComponent', () => {
       ],
       providers: [CarritoService, HttpService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -42,19 +42,19 @@ describe('ComprarProductoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  }); 
+  });
 
-  it('deberia llamar lista productos', ()=>{
+  it('deberia llamar lista productos', () => {
     expect(component.listaCarrito.length).toBe(1);
-  })
+  });
 
-  it('debería actualizar producto',()=>{
-    spyOn(carritoService,'comprar').and.callThrough();
-    const spy = spyOn(component,'comprar').and.callThrough();
-    let carritoCompra: CarritoCompra = new CarritoCompra('1',2000,2)
+  it('debería actualizar producto', () => {
+    spyOn(carritoService, 'comprar').and.callThrough();
+    const spy = spyOn(component, 'comprar').and.callThrough();
+    const carritoCompra: CarritoCompra = new CarritoCompra('1', 2000, 2);
     carritoService.comprar(carritoCompra);
     expect(spy);
     expect(spy).toBeDefined();
-  })
+  });
 
 });

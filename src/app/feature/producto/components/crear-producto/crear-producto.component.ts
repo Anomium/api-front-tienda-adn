@@ -12,37 +12,34 @@ import { DialogoService } from '@producto/shared/service/dialogo.service';
 export class CrearProductoComponent implements OnInit {
   public productoForm: FormGroup;
   producto: Producto = new Producto();
-  valorId:number;
+  valorId: number;
 
-  constructor(protected productoServices: ProductoService, 
-    protected dialogo: DialogoService) { }
-  
+  constructor(protected productoServices: ProductoService, protected dialogo: DialogoService) { }
+
   ngOnInit() {
-    
+
     this.construirFormularioProducto();
   }
 
-  crear():number {
+  crear(): number {
     this.productoServices.guardar(this.producto)
-      .subscribe((data) =>{
+      .subscribe((data) => {
         this.valorId = data;
         this.dialogo.mostrarMensajeExitoDialog('Se ha registrado exitosamente.');
-      }
-    )
-    return this.valorId
+      });
+    return this.valorId;
   }
 
-  limpiarFormulario(){
+  limpiarFormulario() {
     this.productoForm.reset();
   }
 
   private construirFormularioProducto() {
     this.productoForm = new FormGroup({
-      nombre: new FormControl('',[Validators.required]),
-      precio: new FormControl('',[Validators.required]),
-      cantidad: new FormControl('',[Validators.required]),
-      fechaCreacion: new FormControl('',[Validators.required])
-
+      nombre: new FormControl('', [Validators.required]),
+      precio: new FormControl('', [Validators.required]),
+      cantidad: new FormControl('', [Validators.required]),
+      fechaCreacion: new FormControl('', [Validators.required])
     });
   }
 

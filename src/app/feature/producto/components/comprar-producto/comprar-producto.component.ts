@@ -19,8 +19,7 @@ export class ComprarProductoComponent implements OnInit {
 
   carritoCompraForm: FormGroup;
 
-  constructor(protected carritoService: CarritoService,
-    protected dialogo: DialogoService) { }
+  constructor(protected carritoService: CarritoService, protected dialogo: DialogoService) { }
 
   ngOnInit(): void {
     this.consultar();
@@ -28,7 +27,7 @@ export class ComprarProductoComponent implements OnInit {
 
   consultar() {
     this.carritoService.consultarCarritos()
-    .subscribe(data => this.listaCarrito = data)
+      .subscribe(data => this.listaCarrito = data);
   }
 
   comprar(carrito: Carrito) {
@@ -50,7 +49,7 @@ export class ComprarProductoComponent implements OnInit {
     this.carritoService.eliminar(this.carritoDelete);
   }
 
-  limpiarFormulario(){
+  limpiarFormulario() {
     this.carritoCompraForm.reset();
   }
 }

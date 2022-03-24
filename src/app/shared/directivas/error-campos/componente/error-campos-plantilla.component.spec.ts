@@ -11,15 +11,15 @@ describe('ErrorCamposPlantillaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorCamposPlantillaComponent ],
-      imports:[
+      declarations: [ErrorCamposPlantillaComponent],
+      imports: [
         CommonModule,
         HttpClientModule,
         ReactiveFormsModule,
         FormsModule
       ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

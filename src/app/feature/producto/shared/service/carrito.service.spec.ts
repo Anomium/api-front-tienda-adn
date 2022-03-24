@@ -10,9 +10,9 @@ import { CarritoCompra } from '../model/carritoCompra';
 describe('CarritoService', () => {
   let service: CarritoService;
   let httpMock: HttpTestingController;
-  let apiEndpointCarritos = `${environment.endpoint}/carritos`;
+  const apiEndpointCarritos = `${environment.endpoint}/carritos`;
   beforeEach(() => {
-    
+
 
     const injector = TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
@@ -28,23 +28,23 @@ describe('CarritoService', () => {
   it('should be created', () => {
     const carritoService: CarritoService = TestBed.inject(CarritoService);
     expect(carritoService).toBeTruthy();
-  }); 
+  });
 
   it('deberia crear carrito ', () => {
-    const carrito = new Carrito('1','prueba', 2000, 2000, 10, 'PENDIENTE');
+    const carrito = new Carrito('1', 'prueba', 2000, 2000, 10, 'PENDIENTE');
 
     service.crearCarrito(carrito).subscribe((respuesta) => {
       expect(respuesta).toEqual(1);
     });
     const req = httpMock.expectOne(apiEndpointCarritos);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<number>({body: 1}));
+    req.event(new HttpResponse<number>({ body: 1 }));
   });
 
   it('deberia listar carritos', () => {
     const dummyCarritos = [
-      new Carrito('1','prueba', 2000, 2000, 10, 'PENDIENTE'),
-       new Carrito('2','prueba2', 2000, 2000, 10, 'PENDIENTE')
+      new Carrito('1', 'prueba', 2000, 2000, 10, 'PENDIENTE'),
+      new Carrito('2', 'prueba2', 2000, 2000, 10, 'PENDIENTE')
     ];
     service.consultarCarritos().subscribe(carritos => {
       expect(carritos.length).toBe(2);
@@ -55,13 +55,13 @@ describe('CarritoService', () => {
     req.flush(dummyCarritos);
   });
 
-  
-  it('deberia actualizar carrito',()=>{
+
+  it('deberia actualizar carrito', () => {
     const carritoCompra = new CarritoCompra('1', 2000, 2000);
-    service.comprar(carritoCompra).subscribe(()=>{});
+    service.comprar(carritoCompra).subscribe(() => { });
     const req = httpMock.expectOne(`${apiEndpointCarritos}`);
     expect(req.request.method).toBe('PUT');
     req.flush(carritoCompra);
-  })
+  });
 
 });

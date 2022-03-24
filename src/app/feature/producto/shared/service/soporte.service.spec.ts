@@ -22,13 +22,13 @@ describe('SoporteService', () => {
   });
 
   it('should be created', () => {
-    const service: SoporteService = TestBed.inject(SoporteService);
-    expect(service).toBeTruthy();
+    const soporteService: SoporteService = TestBed.inject(SoporteService);
+    expect(soporteService).toBeTruthy();
   });
 
   it('deberia listar soportes', () => {
     const dummySoporte = [
-      new Soporte('1', 'Soporte 1', '2022-01-01'), 
+      new Soporte('1', 'Soporte 1', '2022-01-01'),
       new Soporte('2', 'Soporte 2', '2022-01-01')
     ];
     service.consultar().subscribe(productos => {
@@ -47,7 +47,7 @@ describe('SoporteService', () => {
     });
     const req = httpMock.expectOne(apiEndpointSoportes);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<boolean>({body: true}));
+    req.event(new HttpResponse<boolean>({ body: true }));
   });
 
 });
